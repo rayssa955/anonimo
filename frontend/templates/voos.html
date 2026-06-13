@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}
+Voos
+{% endblock %}
+
+{% block content %}
+
+<h1>🛫 Gerenciamento de Voos</h1>
+
+<div class="card">
+
+    <form method="POST">
+
+        <label>Origem</label>
+        <input type="text" name="origem" required>
+
+        <label>Destino</label>
+        <input type="text" name="destino" required>
+
+        <label>Piloto</label>
+        <select name="piloto_id">
+
+            {% for piloto in pilotos %}
+            <option value="{{ piloto.id }}">
+                {{ piloto.nome }}
+            </option>
+            {% endfor %}
+
+        </select>
+
+        <label>Aeronave</label>
+        <select name="aviao_id">
+
+            {% for aviao in avioes %}
+            <option value="{{ aviao.id }}">
+                {{ aviao.modelo }}
+            </option>
+            {% endfor %}
+
+        </select>
+
+        <button type="submit">
+            🛫 Cadastrar Voo
+        </button>
+
+    </form>
+
+</div>
+
+<div class="card">
+
+    <h2>Voos Cadastrados</h2>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Origem</th>
+            <th>Destino</th>
+            <th>Piloto</th>
+            <th>Aeronave</th>
+        </tr>
+
+        {% for voo in voos %}
+        <tr>
+            <td>{{ voo.id }}</td>
+            <td>{{ voo.origem }}</td>
+            <td>{{ voo.destino }}</td>
+            <td>{{ voo.piloto.nome }}</td>
+            <td>{{ voo.aviao.modelo }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+{% endblock %}

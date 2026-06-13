@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}
+Aeroportos
+{% endblock %}
+
+{% block content %}
+
+<h1>🌎 Gerenciamento de Aeroportos</h1>
+
+<div class="card">
+
+    <form method="POST">
+
+        <label>Nome</label>
+        <input type="text" name="nome" required>
+
+        <label>Cidade</label>
+        <input type="text" name="cidade" required>
+
+        <button type="submit">
+            🌎 Cadastrar Aeroporto
+        </button>
+
+    </form>
+
+</div>
+
+<div class="card">
+
+    <h2>Aeroportos Cadastrados</h2>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Cidade</th>
+        </tr>
+
+        {% for aeroporto in aeroportos %}
+        <tr>
+            <td>{{ aeroporto.id }}</td>
+            <td>{{ aeroporto.nome }}</td>
+            <td>{{ aeroporto.cidade }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+{% endblock %}

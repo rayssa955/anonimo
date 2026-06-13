@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+<h1>Dashboard</h1>
+
+<div class="cards">
+
+    <div class="card">
+        <h3>✈️ Aeronaves</h3>
+        <h1>{{ total_avioes }}</h1>
+    </div>
+
+    <div class="card">
+        <h3>👨‍✈️ Pilotos</h3>
+        <h1>{{ total_pilotos }}</h1>
+    </div>
+
+    <div class="card">
+        <h3>🌎 Aeroportos</h3>
+        <h1>{{ total_aeroportos }}</h1>
+    </div>
+
+    <div class="card">
+        <h3>🛫 Voos</h3>
+        <h1>{{ total_voos }}</h1>
+    </div>
+
+</div>
+
+{% endblock %}

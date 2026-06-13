@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}
+Aeronaves
+{% endblock %}
+
+{% block content %}
+
+<h1>✈️ Gerenciamento de Aeronaves</h1>
+
+<div class="card">
+
+    <form method="POST">
+
+        <label>Modelo</label>
+        <input type="text" name="modelo" required>
+
+        <label>Fabricante</label>
+        <input type="text" name="fabricante" required>
+
+        <label>Capacidade</label>
+        <input type="number" name="capacidade" required>
+
+        <button type="submit">
+            ✈️ Cadastrar Aeronave
+        </button>
+
+    </form>
+
+</div>
+
+<div class="card">
+
+    <h2>Frota Cadastrada</h2>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Modelo</th>
+            <th>Fabricante</th>
+            <th>Capacidade</th>
+        </tr>
+
+        {% for aviao in avioes %}
+        <tr>
+            <td>{{ aviao.id }}</td>
+            <td>{{ aviao.modelo }}</td>
+            <td>{{ aviao.fabricante }}</td>
+            <td>{{ aviao.capacidade }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+{% endblock %}
